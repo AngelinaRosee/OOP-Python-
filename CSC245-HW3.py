@@ -45,16 +45,16 @@ class Course:
     def add_student(self, student):
         self.students.append(student)
 
-    #Removing student by __student_id
+    #Removing student by id
     def remove_student(self, student_id):
         for student in self.students:
-            if student_id == student.__student_id:
+            if student_id == student.get_student_id():
                 self.students.remove(student)
-                print(f"Removed student {student.__name}")
+                print(f"Removed student {student.get_name()}")
                 return
-        print("Student not found.")
+        raise ValueError(f"Student with ID {student_id} not found.")
 
-    #Displaying student info by course __name
+    #Displaying student info by course
     def display_info(self):
         print(f"Students enrolled in {self.course_name}\n")
         if not self.students:
